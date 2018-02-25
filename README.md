@@ -8,4 +8,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+Run `ng serve` and navigate to `http://localhost:4200/`.
