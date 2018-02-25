@@ -1,3 +1,3 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of items | search: searchValue()">{{item.name}}</li>
+  <li @fade class="list-group-item" *ngFor="let item of items | search: searchValue()">{{item.name}}</li>
 </ul>
