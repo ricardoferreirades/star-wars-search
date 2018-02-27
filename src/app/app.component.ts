@@ -67,6 +67,10 @@ export class AppComponent implements OnInit {
         this.people = res['results'];
         this.getNumberOfPages(res['count'], res['next'], res['results'].length);
 
+        if (term === '' || undefined) {
+          this.currentPage = 1;
+        }
+
         if ( !this.people.length ) {
           this.hasPeople = false;
           return false;
