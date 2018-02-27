@@ -15,14 +15,10 @@ export class SearchInputComponent implements OnInit {
   }
 
   onSearch(queryTerm: String) {
-    this.search.emit({getValue: function() {
-      return queryTerm;
-    }});
+    this.search.emit({getValue: queryTerm });
   }
 
-  onType(typedTerm: String) {
-    this.typed.emit({getValue: function(){
-      return typedTerm;
-    }});
+  onType(queryTerm: String) {
+    this.typed.emit({getValue: queryTerm });
   }
 }

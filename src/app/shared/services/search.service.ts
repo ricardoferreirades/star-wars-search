@@ -8,7 +8,11 @@ export class SearchService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPeople() {
-    return this.httpClient.get(`${this.BASE_URL}people`);
+  searchPeople(term: String) {
+    return this.httpClient.get(`${this.BASE_URL}people/?search=${term}`);
+  }
+
+  changePage(term: String, num: Number) {
+    return this.httpClient.get(`${this.BASE_URL}people/?search=${term}&page=${num}`);
   }
 }

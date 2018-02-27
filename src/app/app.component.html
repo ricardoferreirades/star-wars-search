@@ -7,15 +7,38 @@
 
   <h1>{{ title }}</h1>
   
-  <div class="form-group form-inline">
-    <!--search input compoennt-->
-    <app-search-input (search)="onEnter($event)" (typed)="onKeyUp($event)" value="r2"></app-search-input>
-    <!--button component-->
-    <app-button (pressbutton)="onPress($event, typedValue)"></app-button>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group form-inline">
+        <!--search input compoennt-->
+        <app-search-input (search)="onEnter($event)" (typed)="onSearch($event)"></app-search-input>
+        <!--button component-->
+        <app-button (pressbutton)="onPress($event, typedValue)"></app-button>
+      </div>
+      <!--/ form group-->
+    </div>
+
+    <div class="col-sm-6 text-right">
+      <ul class="pagination mt-0" *ngIf="pages.length">
+        <li [ngClass]="{ 'disabled': currentPage === 1}"><a (click)="onChangePage(currentPage-1)"><<</a></li>
+        <li *ngFor="let page of pages; index as i" 
+        [ngClass]="{
+          'active disabled': i+1 == currentPage
+        }">
+        <a (click)="onChangePage(i+1)">
+          {{i+1}}</a></li>
+          <li [ngClass]="{ 'disabled': currentPage === pages.length}"><a (click)="onChangePage(currentPage+1)">>></a></li>
+      </ul>
+    </div>
+
   </div>
-  <!--/ form group-->
   
   <!--list component-->
-  <app-list [items]="people" [serchValue]="swName"></app-list>
+  <app-list [items]="people" (nextPage)="onChangePage($event)" *ngIf="hasPeople; else noresults"></app-list>
 
+  <ng-template #noresults>
+    <div @fade class="alert alert-sw">
+      <strong>Sorry:</strong> No results found for <span class="error-highlight">{{ typedValue | uppercase }}</span>.
+    </div>
+  </ng-template>
 </div>

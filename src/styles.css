@@ -39,8 +39,9 @@ body {
 .list-group-item:hover {
     background: yellow;
     color: black;
-    border: 1px solid yellow;
     font-weight: bold;
+    border: 1px solid #ffff69;
+    box-shadow: 0 0 10px yellow;
 }
 
 .custom-control, .custom-control:focus, .custom-control:valid  {
@@ -48,11 +49,58 @@ body {
     border: 1px solid white;
     color: black;
     background: white;
+    box-shadow: 0 0 10px #e2e2e2;
 }
 
 .btn-sw {
     background: yellow;
-    color: black;
+    color: #03080f;
     outline: none;
     font-weight: bold;
+    box-shadow: 0 0 10px yellow;
+    border-color: #ffffb9;
+}
+
+.pagination li a {
+    cursor: pointer;
+    color: #999999;
+}
+
+.pagination li a:hover {
+    color: #03080f;
+    background-color: yellow;
+    box-shadow: 0 0 10px yellow;
+    border-color: #ffffb9;
+}
+
+.pagination .active.disabled a, .pagination .active.disabled a:hover{
+    z-index: 2;
+    color: #03080f;
+    cursor: not-allowed;
+    background-color: yellow;
+    box-shadow: 0 0 10px yellow;
+    border-color: #ffffb9;
+}
+
+.pagination .disabled a, .pagination .disabled a:hover {
+    background: rgba(82, 79, 79, 0.7);
+    border-color: rgba(82, 79, 79, 0.7);
+    box-shadow: none;
+    z-index: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.alert.alert-sw {
+    color: #ff0500;
+    background-color: rgba(109, 0, 0, 0.19);
+    border-color: #ff1c1c;
+    box-shadow: 0 0 20px red;
+}
+
+.error-highlight {
+    color: white;
+    text-shadow: 0 0 10px white;
 }

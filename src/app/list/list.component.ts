@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { SearchService } from './../shared/services/search.service';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { fade } from './../shared/animations/animations';
 
 @Component({
@@ -11,14 +12,9 @@ import { fade } from './../shared/animations/animations';
 })
 export class ListComponent implements OnInit {
   @Input() items: any[];
-  @Input() serchValue = '';
 
-  constructor() {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit() {
-  }
-
-  searchValue() {
-    return this.serchValue;
   }
 }
